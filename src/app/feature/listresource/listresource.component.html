@@ -1,0 +1,21 @@
+<div class="container pt5">
+    <table class="table table-dark table-responsive-md font14">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Pantone_value</th>
+                <th scope="col">Color</th>
+                <th scope="col">Year</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="singleUser">
+            <tr *ngFor="let data of singleUser">
+                <td>{{data.name}}</td>
+                <td>{{data.pantone_value}}</td>
+                <td>{{data.color}}</td>
+                <td> {{data.year}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

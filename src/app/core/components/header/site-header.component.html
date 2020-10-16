@@ -1,0 +1,47 @@
+<!-- Top menu -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-header font14">
+  <a class="navbar-brand" routerLink='/'><img src="./../../../../assets/images/PayMonk_Logo.png" alt=""
+      class="brandWidth"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" *ngIf="!authService.isAuthenticated()">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-white" routerLink="/">Register <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/login">Login</a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="collapse navbar-collapse font14" id="navbarText" *ngIf="authService.isAuthenticated()">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-white" routerLink="/create">Create <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item " *ngIf="authService.isAuthenticated()">
+        <a class="nav-link text-white" routerLink="/list" style="cursor:pointer;">Userlist</a>
+      </li>
+      <li class="nav-item " *ngIf="authService.isAuthenticated()">
+        <a class="nav-link text-white" routerLink="/listresource" style="cursor:pointer;"
+          routerLinkActive="active">Resource</a>
+      </li>
+      <li class="nav-item " *ngIf="authService.isAuthenticated()">
+        <a class="nav-link text-white" routerLink="/singleuser" style="cursor:pointer;"
+          routerLinkActive="active">SingleUser</a>
+      </li>
+      <li class="nav-item " *ngIf="authService.isAuthenticated()">
+        <a class="nav-link text-white" routerLink="/singleresource" style="cursor:pointer;"
+          routerLinkActive="active">Singleresource</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" (click)="logout()">Logout</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

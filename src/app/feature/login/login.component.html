@@ -1,0 +1,32 @@
+<div class="container pt5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center text-skyblue">Login</h3>
+            <form [formGroup]="loginForm" class="bg-header p-ol-3 font14" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label class="text-white">Email</label>
+                    <input type="text" formControlName="email" class="form-control inputHeight"
+                        [ngClass]="{ 'is-invalid': f.email.errors && (f.email.dirty || f.email.touched) }" />
+                    <div *ngIf="f.email.errors && (f.email.dirty || f.email.touched)" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">User Name is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="text-white">Password</label>
+                    <input type="password" formControlName="password" class="form-control inputHeight"
+                        [ngClass]="{ 'is-invalid': f.password.errors && (f.password.dirty || f.password.touched) }" />
+                    <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit"
+                        class="btn btn-primary btnStyling bg-header text-skyblue font14">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container pt5 ">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-skyblue text-center">You can update the user!</h3>
+            <form [formGroup]="updateForm" class="bg-header p-ol-3 font14" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label class="text-white">Name</label>
+                    <input type="text" formControlName="name" class="form-control inputHeight"
+                        [ngClass]="{ 'is-invalid': f.name.errors && (f.name.dirty || f.name.touched) }" />
+                    <div *ngIf="f.name.errors && (f.name.dirty || f.name.touched)" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="text-white">Job</label>
+                    <input type="job" formControlName="job" class="form-control inputHeight"
+                        [ngClass]="{ 'is-invalid': f.job.errors && (f.job.dirty || f.job.touched) }" />
+                    <div *ngIf="f.job.errors && (f.job.dirty || f.job.touched)" class="invalid-feedback">
+                        <div *ngIf="f.job.errors.required">Job is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit"
+                        class="btn btn-primary btnStyling bg-header text-skyblue font14">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
